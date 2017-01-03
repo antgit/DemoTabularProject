@@ -1737,6 +1737,16 @@
             ]
           }
         ],
+        "measures": [
+          {
+            "name": "Days Current Quarter to Date",
+            "expression": "COUNTROWS( DATESQTD( 'Date'[Date]))"
+          },
+          {
+            "name": "Days in Current Quarter",
+            "expression": "COUNTROWS( DATESBETWEEN( 'Date'[Date], STARTOFQUARTER( LASTDATE('Date'[Date])), ENDOFQUARTER('Date'[Date])))"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -5531,6 +5541,99 @@
                 ]
               }
             ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Internet Distinct Count Sales Order",
+            "expression": "DISTINCTCOUNT([SalesOrderNumber])"
+          },
+          {
+            "name": "Internet Order Lines Count",
+            "expression": "COUNTA([SalesOrderLineNumber])"
+          },
+          {
+            "name": "Internet Total Units",
+            "expression": "SUM([OrderQuantity])"
+          },
+          {
+            "name": "Internet Total Discount Amount",
+            "expression": "SUM([DiscountAmount])"
+          },
+          {
+            "name": "Internet Total Product Cost",
+            "expression": "SUM([TotalProductCost])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Sales",
+            "expression": "SUM([SalesAmount])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Margin",
+            "expression": "SUM([Margin])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Tax Amt",
+            "expression": "SUM([TaxAmt])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Total Freight",
+            "expression": "SUM([Freight])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Internet Previous Quarter Margin",
+            "expression": "CALCULATE([Internet Total Margin],PREVIOUSQUARTER('Date'[Date]))"
+          },
+          {
+            "name": "Internet Current Quarter Margin",
+            "expression": "TOTALQTD([Internet Total Margin],'Date'[Date])"
+          },
+          {
+            "name": "Internet Previous Quarter Margin Proportion to QTD",
+            "expression": "[Internet Previous Quarter Margin]*([Days Current Quarter to Date]/[Days In Current Quarter])"
+          },
+          {
+            "name": "Internet Previous Quarter Sales",
+            "expression": "CALCULATE([Internet Total Sales],PREVIOUSQUARTER('Date'[Date]))"
+          },
+          {
+            "name": "Internet Current Quarter Sales",
+            "expression": "TOTALQTD([Internet Total Sales],'Date'[Date])"
           }
         ],
         "annotations": [
