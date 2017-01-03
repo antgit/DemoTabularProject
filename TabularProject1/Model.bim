@@ -6007,6 +6007,29 @@
         "fromColumn": "ProductKey",
         "toTable": "Product",
         "toColumn": "ProductKey"
+      },
+      {
+        "name": "3ed90450-05f5-460a-b103-7e41173e056e",
+        "fromTable": "InternetSales",
+        "fromColumn": "OrderDateKey",
+        "toTable": "Date",
+        "toColumn": "Date"
+      },
+      {
+        "name": "1bae24e4-d15c-4c3e-bf6d-58e3e63ffc0b",
+        "fromTable": "InternetSales",
+        "fromColumn": "DueDateKey",
+        "toTable": "Date",
+        "toColumn": "Date",
+        "isActive": false
+      },
+      {
+        "name": "091549a7-ddbd-474b-993f-d1d864438fb8",
+        "fromTable": "InternetSales",
+        "fromColumn": "ShipDateKey",
+        "toTable": "Date",
+        "toColumn": "Date",
+        "isActive": false
       }
     ],
     "annotations": [
