@@ -1340,6 +1340,20 @@
             "dataType": "int64",
             "sourceColumn": "FiscalSemester",
             "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "type": "calculated",
+            "name": "Month Calendar",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RIGHT(\" \" & FORMAT([MonthNumberOfYear], \"#0\"), 2) & \" - \" & [EnglishMonthName]"
+          },
+          {
+            "type": "calculated",
+            "name": "Day of Week",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RIGHT(\" \" & FORMAT([DayNumberOfWeek],\"#0\"), 2) & \" - \" & [EnglishDayNameOfWeek]"
           }
         ],
         "partitions": [
@@ -2812,6 +2826,20 @@
             "dataType": "string",
             "sourceColumn": "Status",
             "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Product Subcategory Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED('ProductSubcategory'[EnglishProductSubcategoryName])"
+          },
+          {
+            "type": "calculated",
+            "name": "Product Category Name",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED('ProductCategory'[EnglishProductCategoryName])"
           }
         ],
         "partitions": [
@@ -5012,6 +5040,20 @@
             "dataType": "string",
             "sourceColumn": "CustomerPONumber",
             "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Margin",
+            "dataType": "decimal",
+            "isDataTypeInferred": true,
+            "expression": "[SalesAmount] - [TotalProductCost]",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
