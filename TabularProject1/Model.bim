@@ -5634,6 +5634,104 @@
           {
             "name": "Internet Current Quarter Sales",
             "expression": "TOTALQTD([Internet Total Sales],'Date'[Date])"
+          },
+          {
+            "name": "Internet Current Quarter Sales Performance",
+            "expression": "IFERROR([Internet Current Quarter Sales]/[Internet Previous Quarter Sales Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.1",
+              "statusGraphic": "Shapes",
+              "statusExpression": [
+                "var x='InternetSales'[Internet Current Quarter Sales Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<1,-1,",
+                "\t                If(x<1.07,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "1"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.07"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Internet Previous Quarter Sales Proportion to QTD",
+            "expression": "[Internet Previous Quarter Sales]*([Days Current Quarter to Date]/[Days In Current Quarter])"
+          },
+          {
+            "name": "Internet Current Quarter Margin Performance",
+            "expression": "IF([Internet Previous Quarter Margin Proportion to QTD]<>0,([Internet Current Quarter Margin]-[Internet Previous Quarter Margin Proportion to QTD])/[Internet Previous Quarter Margin Proportion to QTD],BLANK())",
+            "kpi": {
+              "targetExpression": "1.25",
+              "statusGraphic": "Shapes",
+              "statusExpression": [
+                "var x='InternetSales'[Internet Current Quarter Margin Performance] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.8,-1,",
+                "\t                If(x<1.03,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.8"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "1.03"
+                }
+              ]
+            }
           }
         ],
         "annotations": [
@@ -6175,6 +6273,350 @@
         "toTable": "Date",
         "toColumn": "Date",
         "isActive": false
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "Internet Sales",
+        "tables": [
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarSemester"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "Date"
+              },
+              {
+                "name": "Day of Week"
+              },
+              {
+                "name": "DayNumberOfMonth"
+              },
+              {
+                "name": "DayNumberOfWeek"
+              },
+              {
+                "name": "DayNumberOfYear"
+              },
+              {
+                "name": "EnglishDayNameOfWeek"
+              },
+              {
+                "name": "EnglishMonthName"
+              },
+              {
+                "name": "FiscalQuarter"
+              },
+              {
+                "name": "FiscalSemester"
+              },
+              {
+                "name": "FiscalYear"
+              },
+              {
+                "name": "Month Calendar"
+              },
+              {
+                "name": "MonthNumberOfYear"
+              },
+              {
+                "name": "WeekNumberOfYear"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Days Current Quarter to Date"
+              },
+              {
+                "name": "Days in Current Quarter"
+              }
+            ]
+          },
+          {
+            "name": "Geography",
+            "columns": [
+              {
+                "name": "City"
+              },
+              {
+                "name": "CountryRegionCode"
+              },
+              {
+                "name": "EnglishCountryRegionName"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "PostalCode"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "StateProvinceCode"
+              },
+              {
+                "name": "StateProvinceName"
+              }
+            ]
+          },
+          {
+            "name": "InternetSales",
+            "columns": [
+              {
+                "name": "CarrierTrackingNumber"
+              },
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "CustomerPONumber"
+              },
+              {
+                "name": "DiscountAmount"
+              },
+              {
+                "name": "DueDateKey"
+              },
+              {
+                "name": "ExtendedAmount"
+              },
+              {
+                "name": "Freight"
+              },
+              {
+                "name": "Margin"
+              },
+              {
+                "name": "OrderDateKey"
+              },
+              {
+                "name": "OrderQuantity"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductStandardCost"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "RevisionNumber"
+              },
+              {
+                "name": "SalesAmount"
+              },
+              {
+                "name": "SalesOrderLineNumber"
+              },
+              {
+                "name": "SalesOrderNumber"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "ShipDateKey"
+              },
+              {
+                "name": "TaxAmt"
+              },
+              {
+                "name": "TotalProductCost"
+              },
+              {
+                "name": "UnitPrice"
+              },
+              {
+                "name": "UnitPriceDiscountPct"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Internet Current Quarter Margin"
+              },
+              {
+                "name": "Internet Current Quarter Sales"
+              },
+              {
+                "name": "Internet Distinct Count Sales Order"
+              },
+              {
+                "name": "Internet Order Lines Count"
+              },
+              {
+                "name": "Internet Previous Quarter Margin"
+              },
+              {
+                "name": "Internet Previous Quarter Margin Proportion to QTD"
+              },
+              {
+                "name": "Internet Previous Quarter Sales"
+              },
+              {
+                "name": "Internet Previous Quarter Sales Proportion to QTD"
+              },
+              {
+                "name": "Internet Total Discount Amount"
+              },
+              {
+                "name": "Internet Total Freight"
+              },
+              {
+                "name": "Internet Total Margin"
+              },
+              {
+                "name": "Internet Total Product Cost"
+              },
+              {
+                "name": "Internet Total Sales"
+              },
+              {
+                "name": "Internet Total Tax Amt"
+              },
+              {
+                "name": "Internet Total Units"
+              },
+              {
+                "name": "Internet Current Quarter Margin Performance"
+              },
+              {
+                "name": "Internet Current Quarter Sales Performance"
+              }
+            ]
+          },
+          {
+            "name": "Product",
+            "columns": [
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "DaysToManufacture"
+              },
+              {
+                "name": "DealerPrice"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishDescription"
+              },
+              {
+                "name": "EnglishProductName"
+              },
+              {
+                "name": "FinishedGoodsFlag"
+              },
+              {
+                "name": "ListPrice"
+              },
+              {
+                "name": "ModelName"
+              },
+              {
+                "name": "Product Category Name"
+              },
+              {
+                "name": "Product Subcategory Name"
+              },
+              {
+                "name": "ProductAlternateKey"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductLine"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ReorderPoint"
+              },
+              {
+                "name": "SafetyStockLevel"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "SizeRange"
+              },
+              {
+                "name": "SizeUnitMeasureCode"
+              },
+              {
+                "name": "StandardCost"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "WeightUnitMeasureCode"
+              }
+            ]
+          },
+          {
+            "name": "ProductCategory",
+            "columns": [
+              {
+                "name": "EnglishProductCategoryName"
+              },
+              {
+                "name": "ProductCategoryAlternateKey"
+              },
+              {
+                "name": "ProductCategoryKey"
+              }
+            ]
+          },
+          {
+            "name": "ProductSubcategory",
+            "columns": [
+              {
+                "name": "EnglishProductSubcategoryName"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "ProductSubcategoryAlternateKey"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              }
+            ]
+          }
+        ]
       }
     ],
     "annotations": [
