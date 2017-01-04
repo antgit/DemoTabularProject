@@ -1747,6 +1747,88 @@
             "expression": "COUNTROWS( DATESBETWEEN( 'Date'[Date], STARTOFQUARTER( LASTDATE('Date'[Date])), ENDOFQUARTER('Date'[Date])))"
           }
         ],
+        "hierarchies": [
+          {
+            "name": "Calendar",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "Semester",
+                "ordinal": 1,
+                "column": "CalendarSemester"
+              },
+              {
+                "name": "Quarter",
+                "ordinal": 2,
+                "column": "CalendarQuarter"
+              },
+              {
+                "name": "Month",
+                "ordinal": 3,
+                "column": "Month Calendar"
+              },
+              {
+                "name": "Day",
+                "ordinal": 4,
+                "column": "DayNumberOfMonth"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal ",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "FiscalYear"
+              },
+              {
+                "name": "Semester",
+                "ordinal": 1,
+                "column": "FiscalSemester"
+              },
+              {
+                "name": "Quarter",
+                "ordinal": 2,
+                "column": "FiscalQuarter"
+              },
+              {
+                "name": "Month",
+                "ordinal": 3,
+                "column": "Month Calendar"
+              },
+              {
+                "name": "Day",
+                "ordinal": 4,
+                "column": "DayNumberOfMonth"
+              }
+            ]
+          },
+          {
+            "name": "Production Calendar",
+            "levels": [
+              {
+                "name": "Year",
+                "ordinal": 0,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "Week",
+                "ordinal": 1,
+                "column": "WeekNumberOfYear"
+              },
+              {
+                "name": "Day",
+                "ordinal": 2,
+                "column": "DayNumberOfWeek"
+              }
+            ]
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
@@ -3541,6 +3623,33 @@
                   "  <IsSortDescending>false</IsSortDescending>",
                   "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
                 ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Category",
+            "levels": [
+              {
+                "name": "Category",
+                "ordinal": 0,
+                "column": "Product Category Name"
+              },
+              {
+                "name": "Subcategory",
+                "ordinal": 1,
+                "column": "Product Subcategory Name"
+              },
+              {
+                "name": "ModelName",
+                "ordinal": 2,
+                "column": "ModelName"
+              },
+              {
+                "name": "EnglishProductName",
+                "ordinal": 3,
+                "column": "EnglishProductName"
               }
             ]
           }
