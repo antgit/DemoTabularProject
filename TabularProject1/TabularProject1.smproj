@@ -15,8 +15,8 @@
     <OutputPath>bin\</OutputPath>
     <DeploymentServerName>localhost</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
-    <DeploymentServerVersion>Unknown</DeploymentServerVersion>
-    <DeploymentServerDatabase>TabularProject1</DeploymentServerDatabase>
+    <DeploymentServerVersion>Version_13_0</DeploymentServerVersion>
+    <DeploymentServerDatabase>Adventure Works Internet Sales Model</DeploymentServerDatabase>
     <DeploymentServerCubeName>Model</DeploymentServerCubeName>
     <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>
