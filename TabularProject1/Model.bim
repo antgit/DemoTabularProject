@@ -6362,6 +6362,26 @@
         ]
       }
     ],
+    "roles": [
+      {
+        "name": "Internet Sales Manager",
+        "modelPermission": "read"
+      },
+      {
+        "name": "Internet Sales US",
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Geography",
+            "filterExpression": "Geography[CountryRegionCode] = \"US\""
+          }
+        ]
+      },
+      {
+        "name": "Internet Sales Administrator",
+        "modelPermission": "administrator"
+      }
+    ],
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
